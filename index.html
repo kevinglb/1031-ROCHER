@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html lang='cn'>
+	<head>
+		<meta name="description" content="">
+		 <meta charset="utf-8">
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- rem js based on clientWidth-->
+    	<!--<script type="text/javascript" src="js/common.js"></script> -->
+    	<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+
+		<div id="" class="mainWrap">
+			<div class="swiper-container">
+  				<div class="swiper-wrapper">
+    				<div class="swiper-slide slide1">slider1</div>
+    				<div class="swiper-slide slide2">slider2</div>
+    				<div class="swiper-slide slide3">slider3
+    					<a class="btn" data-slide="4">我要定制</a>
+    					<a class="btn" data-slide="5">我要定制</a>
+    					<a class="btn" data-slide="6">我要定制</a>
+    				</div>
+    				<!-- <div class="swiper-slide">slider4</div>
+    				<div class="swiper-slide">slider5</div> -->
+  				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/swiper.animate.min.js"></script>
+		<script type="text/javascript">
+			var swiper = new Swiper('.swiper-container',{direction : 'vertical',});
+			$('.swiper-slide .btn').bind('click',function(){
+				var s = $(this).attr('data-slide');
+				console.log(s);
+				// var newSlide = document.createElement('div');
+				// newSlide.classList.add('swiper-slide');
+				var newSlide;
+				switch(s){
+					case '4':
+						newSlide = '<div class="Swiper-slide slide4"></div>';
+						break;
+					case '5':
+						newSlide = '<div class="swiper-slide slide5"></div>';
+						break;
+					case '6':
+						newSlide = '<div class="swiper-slide slide6"></div>';
+						break;
+				}
+				
+				swiper.appendSlide(newSlide);
+				swiper.slideNext();
+			})
+		</script>
+	</body>
+</html>
