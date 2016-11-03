@@ -17,19 +17,19 @@
 			<div class="swiper-container">
   				<div class="swiper-wrapper">
     				<div class="swiper-slide slide1">
-    					<div class="text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.2s">
+    					<div class="text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.4s">
 	    					<p class="text-center">有时候，<br/>谢谢是一句不是那么好开口的话<br/>说多了，显得生分<br/>不说，显得不懂感恩</p>
 	    				</div>
-	    				<div class="title ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"></div>
-	    				<a class="arrow-btn ani" swiper-animate-effect="bounce" swiper-animate-duration="0.5s" swiper-animate-delay="1s"><img src="image/arrow-down.png"></a>
+	    				<div class="title ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="1.2s"></div>
+	    				<a class="arrow-btn ani infinite" swiper-animate-effect="moving" swiper-animate-duration="1s" swiper-animate-delay="2s"><img src="image/arrow-down.png"></a>
     				</div>
     				<div class="swiper-slide stop-swiping slide2 ">
-    					<div class="title ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"></div>
-    					<div class="text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.2s">
+    					<div class="title ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.4s"></div>
+    					<div class="text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="1.2s">
 	    					<p class="text-center">您的谢谢，可以请金句女王马薇薇替您开口<br/>也可以让宝岛辩魂黄执中深情言谢</p>
 	    				</div>
 	    				
-	    				<a class="btn btn-lg" data-slide="3"></a>
+	    				<a class="btn btn-lg ani" data-slide="3" swiper-animate-effect="fadeIn" swiper-animate-duration="0.8s" swiper-animate-delay="2s"></a>
     				</div>
     				<div class="swiper-slide stop-swiping slide3">
     					<a class="btn ani" data-slide="4" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s"></a>
@@ -45,6 +45,7 @@
 		<script type="text/javascript" src="js/swiper.min.js"></script>
 		<script type="text/javascript" src="js/swiper.animate.min.js"></script>
 		<script type="text/javascript">
+		$(function(){
 			var swiper = new Swiper('.swiper-container',
 				{direction : 'vertical',
 				noSwiping : true,
@@ -57,9 +58,44 @@
     						swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
   						}
   				 });
+			var unbindEvent = function(){
+				$('.swiper-slide .float-btn').unbind('click');
+				$('.swiper-slide .float-wrap .float-close').unbind('click');
+			}
+			var bindEvent = function(){
+				$('.swiper-slide .float-btn').bind('click',function(event){
+					event.stopPropagation();
+					event.preventDefault();
+					var slide = $(this).parent('.swiper-slide');
+					var floatWrap = slide.find(".float-wrap");
+					if(floatWrap.is(':visible')){
+						return;
+					}else{
+						floatWrap.fadeIn();
+					}
+				});
+
+				$('.swiper-slide .float-wrap .float-close').bind('click',function(event){
+					event.stopPropagation();
+					event.preventDefault();
+					var floatWrap = $(this).parent('.float-wrap');
+					if(floatWrap.is(':visible')){
+						floatWrap.fadeOut();
+					}else{
+						return;
+					}
+				});
+
+				$("textarea").bind('input propertychange', function() {  
+        			var maxLength = $(this).attr('maxlength');  
+        			if ($(this).val().length > maxLength) {  
+            			$(this).val($(this).val().substring(0, maxLength));  
+        			}  
+   				});
+			};
+
 			$('.swiper-slide .btn').bind('click',function(){
 				var s = $(this).attr('data-slide');
-				console.log(s);
 				// var newSlide = document.createElement('div');
 				// newSlide.classList.add('swiper-slide');
 				var newSlide;
@@ -68,29 +104,31 @@
 						swiper.slideNext();
 						break;
 					case '4':
-						newSlide = '<div class="Swiper-slide stop-swiping slide4"><div class="title"></div><a class="btn"></a><a class="float-btn"></a><div class="float-wrap"><a class="float-close"></a></div></div>';
+						newSlide = '<div class="swiper-slide stop-swiping slide4"><div class="title"></div><a class="btn" href=""></a><a class="float-btn"></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
 						swiper.appendSlide(newSlide);
 						swiper.slideNext();
+						unbindEvent();
+						bindEvent();
 						break;
 					case '5':
-						newSlide = '<div class="Swiper-slide stop-swiping slide5"><div class="title"></div><a class="btn"></a><a class="float-btn"></a><div class="float-wrap"><a class="float-close"></a></div></div>';
+						newSlide = '<div class="swiper-slide stop-swiping slide5"><div class="title"></div><a class="btn" href=""></a><a class="float-btn"></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
 						swiper.appendSlide(newSlide);
 						swiper.slideNext();
+						unbindEvent();
+						bindEvent();
 						break;
 					case '6':
-						newSlide = '<div class="Swiper-slide stop-swiping slide6"><a class="btn"></a><a class="float-btn"></a><div class="float-wrap"><a class="float-close"></a></div></div>';
+						newSlide = '<div class="swiper-slide stop-swiping slide6"><a class="btn"></a><div class="input-field"><textarea maxlength="34"></textarea></div><a class="float-btn" href=""></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
 						swiper.appendSlide(newSlide);
 						swiper.slideNext();
+						unbindEvent();
+						bindEvent();
 						break;
 				}
-				
-				
-				
 			});
 
-			$('.swiper-slide .float-btn').bind('click',function(){
-				
-			});
+			
+		});		
 		</script>
 	</body>
 </html>
