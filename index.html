@@ -6,9 +6,21 @@
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		<!-- rem js based on clientWidth-->
-    	<script type="text/javascript" src="js/common.js"></script> 
+		<script type="text/javascript">
+			(function(doc, win) {
+    			var docEl = doc.documentElement,
+        			resizee = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        			recalc = function() {
+            			var clientWidth = docEl.clientWidth;
+            			if (!clientWidth) return;
+    						docEl.style.fontSize = 12*(clientWidth / 375) + 'px';
+   						};
+    				if (!doc.addEventListener) return;
+    				win.addEventListener(resizee, recalc, false);
+    				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
     	<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
-    	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
     	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<body>
@@ -36,8 +48,6 @@
     					<a class="btn ani" data-slide="5" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s"></a>
     					<a class="btn ani" data-slide="6" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s"></a>
     				</div>
-    				<!-- <div class="swiper-slide">slider4</div>
-    				<div class="swiper-slide">slider5</div> -->
   				</div>
 			</div>
 		</div>
@@ -91,15 +101,12 @@
         			// if ($(this).val().length > maxLength) {  
            //  			$(this).val($(this).val().substring(0, maxLength));  
         			// }  
-
         			if ($(this).val().match(/[\u3400-\u9FBF]/) && $(this).val().length >= maxLength/2) {
            				
             			$(this).val($(this).val().substring(0,maxLength/2));
         			}else if ($(this).val().length >= maxLength){
             			
             			$(this).val($(this).val().substring(0,maxLength));
-        				
-
         			}
    				});
 			};
@@ -137,7 +144,6 @@
 				}
 			});
 
-			
 		});		
 		</script>
 	</body>
