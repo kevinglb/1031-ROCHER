@@ -1,0 +1,268 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    font-family: Arial,Helvetica,'Heiti SC','Microsoft Yahei',simsun,sans-serif;
+    font-size: 1rem;
+    color:#fff;
+    margin: 0 auto;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    line-height: 1.6;  
+}
+body{position: relative;}
+*,*:before,*:after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    outline:none;
+}
+img{margin: 0 auto;width:100%;display: block;}
+.clearfix{clear: both;}
+a{color: #fff;text-decoration: none;}
+.dn{display: none}
+.poa{position: absolute;}
+.animated{
+	-webkit-transition: all 300ms ease-in-out;
+	-moz-transition: all 300ms ease-in-out;
+	-ms-transition: all 300ms ease-in-out;
+	-o-transition: all 300ms ease-in-out;
+	transition: all 300ms ease-in-out;
+}
+.text-center{text-align: center;}
+/*mainWrap*/
+.mainWrap{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color:#fff; 
+}
+
+.swiper-container{
+	position: relative;
+	height: 100%；
+	width:100%;
+}
+/*bg image setting*/
+.slide1{
+    background-image: url('../image/bg-intro.jpg')
+}
+.slide2{
+    background-image: url('../image/bg-1.jpg')
+}
+.slide3{
+    background-image: url('../image/bg-2.jpg')
+}
+.slide4{
+    background-image: url('../image/bg-3-1.jpg')
+}
+.slide5{
+    background-image: url('../image/bg-3-2.jpg')
+}
+.slide6{
+    background-image: url('../image/bg-3-3.jpg')
+}
+.swiper-slide{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #68271f;
+}
+.swiper-slide .text{
+    position: relative;
+}
+.swiper-slide .title{
+    position: relative;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.swiper-slide .btn{
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.slide1 .text{
+    margin-top: 15rem;
+    line-height: 2.4;
+}
+.slide1 .title{
+    width: 26rem;
+    height: 7rem;
+    background-image: url('../image/title.png');
+    background-position: 2.5rem 0.5rem;
+}
+.slide1 .arrow-btn{
+    width: 3rem;
+    display: block;
+    position: relative;
+    margin: 1rem auto;
+    height: 3rem;
+}
+.slide2 .text{
+    margin-top: 1rem;
+}
+.slide2 .title{
+    margin-top: 30rem;
+    width: 24rem;
+    height: 6.5rem;
+    background-image: url('../image/title.png');
+    background-position: 0.5rem -6rem;
+    
+}
+.slide2 .btn{
+    position: relative;
+    margin: 0.5rem auto;
+    width: 20rem;
+    height: 4.5rem;
+    background-image: url('../image/btn.png');
+    background-position: 0.5rem 0px;
+}
+.slide3 .btn{
+    position: absolute;
+    width: 11rem;
+    height: 3rem;
+    background-image: url('../image/btn-sm.png');
+}
+.slide3 .btn[data-slide='4']{
+    background-position: 0px -0.5rem;
+    top: 13.5rem;
+    left: 18rem;
+}
+.slide3 .btn[data-slide='5']{
+    background-position: 0px -4rem;
+    top: 31rem;
+    left: 3.5rem;
+}
+.slide3 .btn[data-slide='6']{
+    background-position: 0px -7.75rem;
+    top: 46.5rem;
+    left: 18rem;
+}
+.slide4 .title{
+    margin-top: 27rem;
+    width: 25rem;
+    height: 6rem;
+    background-image: url('../image/title.png');
+    background-position: 3rem -13.5rem;
+}
+.slide4 .btn, .slide5 .btn,.slide6 .btn{
+    position: relative;
+    width: 18rem;
+    height: 3.5rem;
+    background-image: url('../image/btn.png');
+    background-position: 2.5rem -13.6rem;
+    display: block;
+    margin: 0.5rem auto 0 auto;
+}
+.slide5 .title{
+    margin-top: 26.5rem;
+    width: 25rem;
+    height: 6.5rem;
+    background-image: url('../image/title.png');
+    background-position: 1.5rem -20rem;
+}
+.slide6 .title{
+    margin-top: 27rem;
+    width: 26rem;
+    height: 6rem;
+    background-image: url('../image/title.png');
+    background-position: 3rem -14rem;
+}
+.slide6 .btn{
+    position: absolute;
+    top: 33rem;
+    left: 50%;
+    margin-left: -9rem;
+}
+
+.float-btn{
+    position: absolute;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background-image: url('../image/float-btn.png');
+    background-size: cover;
+    top: 38rem;
+    left: 20rem;
+}
+
+.float-wrap{
+    position: absolute;
+    display: none;
+    width: 24.5rem;
+    height: 15rem;
+    background-image: url(../image/float-bg.png);
+    background-size: cover;
+    left: 50%;
+    margin-left: -12.25rem;
+    top: 32.5rem;
+    background-position: center;
+}
+.float-wrap img{width: 20rem;}
+.float-wrap .float-close{
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    top: 0.75rem;
+    right: 2.5rem;
+}
+
+.input-field{
+    position: absolute;
+    width: 22rem;
+    height: 8rem;
+    top: 21rem;
+    left: 50%;
+    margin-left: -11rem;
+}
+
+.input-field textarea{
+    position: relative;
+    resize: none;
+    border: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    background: transparent;
+    padding: 0.5rem 1.5rem 0 1.5rem;
+    line-height: 3.5;
+    overflow: hidden;
+}
+
+@-webkit-keyframes moving {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 0.9;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+}
+
+/*@keyframes moving {
+  0% {
+    opacity: 0.1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+}*/
+
+.moving {
+  -webkit-animation-name: moving;
+  animation-name: moving;
+  transition:all ease-in-out;
+}
