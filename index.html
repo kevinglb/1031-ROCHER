@@ -88,9 +88,19 @@
 
 				$("textarea").bind('input propertychange', function() {  
         			var maxLength = $(this).attr('maxlength');  
-        			if ($(this).val().length > maxLength) {  
-            			$(this).val($(this).val().substring(0, maxLength));  
-        			}  
+        			// if ($(this).val().length > maxLength) {  
+           //  			$(this).val($(this).val().substring(0, maxLength));  
+        			// }  
+
+        			if ($(this).val().match(/[\u3400-\u9FBF]/) && $(this).val().length >= maxLength/2) {
+           				
+            			$(this).val($(this).val().substring(0,maxLength/2));
+        			}else if ($(this).val().length >= maxLength){
+            			
+            			$(this).val($(this).val().substring(0,maxLength));
+        				
+
+        			}
    				});
 			};
 
