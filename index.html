@@ -51,6 +51,37 @@
     					<a class="btn ani" data-slide="5" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s"></a>
     					<a class="btn ani" data-slide="6" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s"></a>
     				</div>
+    				<div class="swiper-slide stop-swiping last-slide">
+    					<div class="slide4 last-slide-content">
+    						<div class="title"></div>
+    						<a class="btn" href=""></a>
+    						<a class="float-btn"></a>
+    						<div class="float-wrap">
+    							<img src="image/float-content.png"/><a class="float-close"></a>
+    						</div>
+    					</div>
+
+    					<div class="slide5  last-slide-content">
+    						<div class="title"></div>
+    						<a class="btn" href=""></a>
+    						<a class="float-btn"></a>
+    						<div class="float-wrap">
+    							<img src="image/float-content.png"/><a class="float-close"></a>
+    						</div>
+    					</div>
+
+    					<div class="slide6  last-slide-content">
+    						<a class="btn"></a>
+    						<div class="input-field">
+    							<textarea maxlength="34"></textarea>
+    						</div>
+    						<a class="float-btn" href=""></a>
+    						<div class="float-wrap">
+    							<img src="image/float-content.png"/>
+    							<a class="float-close"></a>
+    						</div>
+    					</div>
+    				</div>
   				</div>
 			</div>
 		</div>
@@ -72,14 +103,14 @@
   						}
   				 });
 			var unbindEvent = function(){
-				$('.swiper-slide .float-btn').unbind('click');
-				$('.swiper-slide .float-wrap .float-close').unbind('click');
+				$('. last-slide-content .float-btn').unbind('click');
+				$('. last-slide-content .float-wrap .float-close').unbind('click');
 			}
 			var bindEvent = function(){
-				$('.swiper-slide .float-btn').bind('click',function(event){
+				$('.last-slide-content .float-btn').bind('click',function(event){
 					event.stopPropagation();
 					event.preventDefault();
-					var slide = $(this).parent('.swiper-slide');
+					var slide = $(this).parent('.last-slide-content');
 					var floatWrap = slide.find(".float-wrap");
 					if(floatWrap.is(':visible')){
 						return;
@@ -88,7 +119,7 @@
 					}
 				});
 
-				$('.swiper-slide .float-wrap .float-close').bind('click',function(event){
+				$('.last-slide-content .float-wrap .float-close').bind('click',function(event){
 					event.stopPropagation();
 					event.preventDefault();
 					var floatWrap = $(this).parent('.float-wrap');
@@ -124,25 +155,29 @@
 						swiper.slideNext();
 						break;
 					case '4':
-						newSlide = '<div class="swiper-slide stop-swiping slide4"><div class="title"></div><a class="btn" href=""></a><a class="float-btn"></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
-						swiper.appendSlide(newSlide);
-						swiper.slideNext();
+						// newSlide = '<div class="swiper-slide stop-swiping slide4"><div class="title"></div><a class="btn" href=""></a><a class="float-btn"></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
+						// swiper.appendSlide(newSlide);
+						//swiper.slideNext();
+						$('.last-slide .slide4').show();
 						unbindEvent();
 						bindEvent();
+						swiper.slideNext();
 						break;
 					case '5':
-						newSlide = '<div class="swiper-slide stop-swiping slide5"><div class="title"></div><a class="btn" href=""></a><a class="float-btn"></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
-						swiper.appendSlide(newSlide);
-						swiper.slideNext();
+						// newSlide = '<div class="swiper-slide stop-swiping slide5"><div class="title"></div><a class="btn" href=""></a><a class="float-btn"></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
+						//swiper.appendSlide(newSlide);
+						$('.last-slide .slide5').show();
 						unbindEvent();
 						bindEvent();
+						swiper.slideNext();
 						break;
 					case '6':
-						newSlide = '<div class="swiper-slide stop-swiping slide6"><a class="btn"></a><div class="input-field"><textarea maxlength="34"></textarea></div><a class="float-btn" href=""></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
-						swiper.appendSlide(newSlide);
-						swiper.slideNext();
+						// newSlide = '<div class="swiper-slide stop-swiping slide6"><a class="btn"></a><div class="input-field"><textarea maxlength="34"></textarea></div><a class="float-btn" href=""></a><div class="float-wrap"><img src="image/float-content.png"/><a class="float-close"></a></div></div>';
+						// swiper.appendSlide(newSlide);
+						$('.last-slide .slide6').show();
 						unbindEvent();
 						bindEvent();
+						swiper.slideNext();
 						break;
 				}
 			});
